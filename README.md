@@ -9,21 +9,21 @@ over most fundamental functions and delivers symmetric implementation that can b
 
 The framework's functionality is decomposed into several packages:
 
-- [**Commands**]() - commanding and eventing patterns
-- [**Config**]() - configuration framework
-- [**Convert**]() - soft value converters
-- [**Data**]() - data patterns
-- [**Errors**]() - application errors
-- [**Random**]() - random data generators
-- [**Refer**]() - locator (IoC) pattern
-- [**Reflect**]() - reflection framework
-- [**Run**]() - execution framework
-- [**Validate**]() - validation framework
+- [**Commands**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/commands.html) - commanding and eventing patterns
+- [**Config**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/config.html) - configuration framework
+- [**Convert**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/convert.html) - soft value converters
+- [**Data**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/data.html) - data patterns
+- [**Errors**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/errors.html) - application errors
+- [**Random**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/random.html) - random data generators
+- [**Refer**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/refer.html) - locator (IoC) pattern
+- [**Reflect**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/reflect.html) - reflection framework
+- [**Run**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/run.html) - execution framework
+- [**Validate**](https://pip-services3-node.github.io/pip-services3-commons-node/modules/validate.html) - validation framework
 
 Quick Links:
 
 * [Downloads](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Downloads.md)
-* [API Reference]()
+* [API Reference](https://pip-services3-node.github.io/pip-services3-commons-node/globals.html)
 * [Building and Testing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md)
 * [Contributing](https://github.com/pip-services-node/pip-services-commons-node/blob/master/doc/Development.md/#contrib)
 
