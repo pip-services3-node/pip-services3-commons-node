@@ -9,9 +9,8 @@ suite('RandomDateTime', ()=> {
     	assert.isTrue(date.getFullYear() == 2015 || date.getFullYear() == 2016 );  
 
 		date = RandomDateTime.nextDate(new Date());
-		// Todo: Fix issues
-        // assert.isTrue(date.getFullYear() >= new Date().getFullYear() - 10 
-        //     && date.getFullYear() <= new Date().getFullYear());
+        assert.isTrue(date.getFullYear() >= new Date().getFullYear() - 10 
+            && date.getFullYear() <= new Date().getFullYear());
    });
 
     test('Update Date Time', () => {

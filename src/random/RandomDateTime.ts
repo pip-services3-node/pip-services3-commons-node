@@ -23,7 +23,7 @@ export class RandomDateTime {
     public static nextDate(min: Date, max: Date = null): Date {
         if (max == null) {
             max = min;
-            min = new Date(2000, 0, 1);
+            min = new Date(max.getFullYear() - 10, 1, 1);
         }
 
         let diff = max.getTime() - min.getTime();

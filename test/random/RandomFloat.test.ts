@@ -17,7 +17,8 @@ suite('RandomFloat', ()=> {
         assert.isTrue(value <= 5 && value >= -5);
         
         value = RandomFloat.updateFloat(5, 0);  
-        
+        assert.isTrue(value >= 4.5 && value <= 5.5);
+
         value = RandomFloat.updateFloat(0);
         assert.isTrue(value == 0);
    });

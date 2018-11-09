@@ -25,7 +25,6 @@ suite('JsonConverter', ()=> {
     });
 
     test('From Json', () => {
-		assert.isNull(JsonConverter.toJson(null));
 		assert.equal(123, JsonConverter.fromJson<number>(TypeCode.Integer, "123"));
 		assert.equal("ABC", JsonConverter.fromJson<string>(TypeCode.String, "\"ABC\""));
 				

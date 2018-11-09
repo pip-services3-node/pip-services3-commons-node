@@ -17,6 +17,7 @@ suite('RandomInteger', ()=> {
         assert.isTrue(value <= 5 && value >= -5);
         
         value = RandomInteger.updateInteger(5, 0);  
+        assert.isTrue(value == 5); 
         
         value = RandomInteger.updateInteger(0);
         assert.isTrue(value == 0);

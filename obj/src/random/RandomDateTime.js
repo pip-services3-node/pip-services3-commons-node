@@ -26,7 +26,7 @@ var RandomDateTime = /** @class */ (function () {
         if (max === void 0) { max = null; }
         if (max == null) {
             max = min;
-            min = new Date(2000, 0, 1);
+            min = new Date(max.getFullYear() - 10, 1, 1);
         }
         var diff = max.getTime() - min.getTime();
         if (diff <= 0)
