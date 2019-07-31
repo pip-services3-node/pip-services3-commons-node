@@ -101,7 +101,7 @@ var PagingParams = /** @class */ (function () {
     PagingParams.fromMap = function (map) {
         var skip = map.getAsNullableInteger("skip");
         var take = map.getAsNullableInteger("take");
-        var total = map.getAsBooleanWithDefault("total", true);
+        var total = map.getAsBooleanWithDefault("total", false);
         return new PagingParams(skip, take, total);
     };
     return PagingParams;

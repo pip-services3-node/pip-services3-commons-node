@@ -101,7 +101,7 @@ export class PagingParams {
 	public static fromMap(map: any): PagingParams {
         let skip = map.getAsNullableInteger("skip");
         let take = map.getAsNullableInteger("take");
-        let total = map.getAsBooleanWithDefault("total", true);
+        let total = map.getAsBooleanWithDefault("total", false);
 		return new PagingParams(skip, take, total);
 	}
 
