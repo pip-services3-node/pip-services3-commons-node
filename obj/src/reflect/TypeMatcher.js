@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _ = require('lodash');
 var TypeCode_1 = require("../convert/TypeCode");
 var TypeConverter_1 = require("../convert/TypeConverter");
+var convert_1 = require("../convert");
 /**
  * Helper class matches value types for equality.
  *
@@ -40,17 +41,22 @@ var TypeMatcher = /** @class */ (function () {
      *
      * @param expectedType  an expected type to match.
      * @param actualType    an actual type to match.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      *
      * @see [[matchTypeByName]]
      * @see [[matchTypeByName]] (for matching by types' string names)
      */
-    TypeMatcher.matchType = function (expectedType, actualType) {
+    TypeMatcher.matchType = function (expectedType, actualType, actualValue) {
+        if (actualValue === void 0) { actualValue = null; }
         if (expectedType == null)
             return true;
         if (actualType == null)
             throw new Error("Actual type cannot be null");
         if (_.isInteger(expectedType)) {
+            if (expectedType == actualType)
+                return true;
+            // Special provisions for dynamic data
             if (expectedType == TypeCode_1.TypeCode.Integer
                 && (actualType == TypeCode_1.TypeCode.Long || actualType == TypeCode_1.TypeCode.Float || actualType == TypeCode_1.TypeCode.Double))
                 return true;
@@ -63,10 +69,13 @@ var TypeMatcher = /** @class */ (function () {
             if (expectedType == TypeCode_1.TypeCode.Double
                 && (actualType == TypeCode_1.TypeCode.Integer || actualType == TypeCode_1.TypeCode.Long || actualType == TypeCode_1.TypeCode.Float))
                 return true;
-            return expectedType == actualType;
+            if (expectedType == TypeCode_1.TypeCode.DateTime
+                && (actualType == TypeCode_1.TypeCode.String && convert_1.DateTimeConverter.toNullableDateTime(actualValue) != null))
+                return true;
+            return false;
         }
         if (_.isString(expectedType))
-            return TypeMatcher.matchTypeByName(expectedType, actualType);
+            return TypeMatcher.matchTypeByName(expectedType, actualType, actualValue);
         return false;
     };
     /**
@@ -88,9 +97,11 @@ var TypeMatcher = /** @class */ (function () {
      *
      * @param expectedType  an expected type name to match.
      * @param actualType    an actual type to match defined by type code.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      */
-    TypeMatcher.matchTypeByName = function (expectedType, actualType) {
+    TypeMatcher.matchTypeByName = function (expectedType, actualType, actualValue) {
+        if (actualValue === void 0) { actualValue = null; }
         if (expectedType == null)
             return true;
         if (actualType == null)
@@ -100,17 +111,25 @@ var TypeMatcher = /** @class */ (function () {
             return true;
         else if (expectedType == "int" || expectedType == "integer") {
             return actualType == TypeCode_1.TypeCode.Integer
+                // Special provisions for dynamic data
                 || actualType == TypeCode_1.TypeCode.Long;
         }
         else if (expectedType == "long") {
-            return actualType == TypeCode_1.TypeCode.Long;
+            return actualType == TypeCode_1.TypeCode.Long
+                // Special provisions for dynamic data
+                || actualType == TypeCode_1.TypeCode.Integer;
         }
         else if (expectedType == "float") {
             return actualType == TypeCode_1.TypeCode.Float
-                || actualType == TypeCode_1.TypeCode.Double;
+                // Special provisions for dynamic data
+                || actualType == TypeCode_1.TypeCode.Double
+                || actualType == TypeCode_1.TypeCode.Integer
+                || actualType == TypeCode_1.TypeCode.Long;
         }
         else if (expectedType == "double") {
-            return actualType == TypeCode_1.TypeCode.Double;
+            return actualType == TypeCode_1.TypeCode.Double
+                // Special provisions fro dynamic data
+                || actualType == TypeCode_1.TypeCode.Float;
         }
         else if (expectedType == "string") {
             return actualType == TypeCode_1.TypeCode.String;
@@ -119,7 +138,9 @@ var TypeMatcher = /** @class */ (function () {
             return actualType == TypeCode_1.TypeCode.Boolean;
         }
         else if (expectedType == "date" || expectedType == "datetime") {
-            return actualType == TypeCode_1.TypeCode.DateTime;
+            return actualType == TypeCode_1.TypeCode.DateTime
+                // Special provisions fro dynamic data
+                || (actualType == TypeCode_1.TypeCode.String && convert_1.DateTimeConverter.toNullableDateTime(actualValue) != null);
         }
         else if (expectedType == "timespan" || expectedType == "duration") {
             return actualType == TypeCode_1.TypeCode.Integer

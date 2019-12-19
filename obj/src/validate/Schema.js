@@ -171,7 +171,7 @@ var Schema = /** @class */ (function () {
         var name = path || "value";
         var valueType = TypeConverter_1.TypeConverter.toTypeCode(value);
         // Match types
-        if (TypeMatcher_1.TypeMatcher.matchType(type, valueType))
+        if (TypeMatcher_1.TypeMatcher.matchType(type, valueType, value))
             return;
         results.push(new ValidationResult_1.ValidationResult(path, ValidationResultType_1.ValidationResultType.Error, "TYPE_MISMATCH", name + " type must be " + this.typeToString(type) + " but found " + this.typeToString(valueType), type, valueType.toString()));
     };

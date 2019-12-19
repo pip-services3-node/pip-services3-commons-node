@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module reflect */
 /** @hidden */
@@ -88,7 +95,7 @@ var TypeReflector = /** @class */ (function () {
             throw new Error("Type constructor cannot be null");
         if (!_.isFunction(type))
             throw new Error("Type contructor has to be a function");
-        return new (type.bind.apply(type, [void 0].concat(args)))();
+        return new (type.bind.apply(type, __spreadArrays([void 0], args)))();
     };
     /**
      * Creates an instance of an object type specified by its name
@@ -111,7 +118,7 @@ var TypeReflector = /** @class */ (function () {
         if (type == null)
             throw new NotFoundException_1.NotFoundException(null, "TYPE_NOT_FOUND", "Type " + name + "," + library + " was not found")
                 .withDetails("type", name).withDetails("library", library);
-        return TypeReflector.createInstanceByType.apply(TypeReflector, [type].concat(args));
+        return TypeReflector.createInstanceByType.apply(TypeReflector, __spreadArrays([type], args));
     };
     /**
      * Creates an instance of an object type specified by type descriptor.
@@ -130,7 +137,7 @@ var TypeReflector = /** @class */ (function () {
         }
         if (descriptor == null)
             throw new Error("Type descriptor cannot be null");
-        return TypeReflector.createInstance.apply(TypeReflector, [descriptor.getName(), descriptor.getLibrary()].concat(args));
+        return TypeReflector.createInstance.apply(TypeReflector, __spreadArrays([descriptor.getName(), descriptor.getLibrary()], args));
     };
     /**
      * Checks if value has primitive type.

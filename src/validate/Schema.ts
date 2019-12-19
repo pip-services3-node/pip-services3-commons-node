@@ -196,7 +196,7 @@ export class Schema {
         let valueType: TypeCode = TypeConverter.toTypeCode(value);
 
         // Match types
-        if (TypeMatcher.matchType(type, valueType))
+        if (TypeMatcher.matchType(type, valueType, value))
             return;
 
         results.push(

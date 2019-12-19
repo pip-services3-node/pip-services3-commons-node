@@ -4,6 +4,7 @@ let _ = require('lodash');
 
 import { TypeCode } from '../convert/TypeCode';
 import { TypeConverter } from '../convert/TypeConverter';
+import { DateTimeConverter } from '../convert';
 
 /**
  * Helper class matches value types for equality.
@@ -41,18 +42,22 @@ export class TypeMatcher {
      * 
      * @param expectedType  an expected type to match.
      * @param actualType    an actual type to match.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      * 
      * @see [[matchTypeByName]]
      * @see [[matchTypeByName]] (for matching by types' string names)
      */
-    public static matchType(expectedType: any, actualType: TypeCode): boolean {
+    public static matchType(expectedType: any, actualType: TypeCode, actualValue: any = null): boolean {
         if (expectedType == null)
             return true;
         if (actualType == null)
         	throw new Error("Actual type cannot be null");
 
         if (_.isInteger(expectedType)) {
+            if (expectedType == actualType)
+                return true;
+            // Special provisions for dynamic data
             if (expectedType == TypeCode.Integer 
                 && (actualType == TypeCode.Long || actualType == TypeCode.Float || actualType == TypeCode.Double))
                 return true;
@@ -65,11 +70,14 @@ export class TypeMatcher {
             if (expectedType == TypeCode.Double
                 && (actualType == TypeCode.Integer || actualType == TypeCode.Long || actualType == TypeCode.Float))
                 return true;
-            return expectedType == actualType;
+            if (expectedType == TypeCode.DateTime
+                && (actualType == TypeCode.String && DateTimeConverter.toNullableDateTime(actualValue) != null))
+                return true;
+            return false;
         }
         
         if (_.isString(expectedType))
-            return TypeMatcher.matchTypeByName(expectedType, actualType);
+            return TypeMatcher.matchTypeByName(expectedType, actualType, actualValue);
 
         return false;
     }
@@ -95,9 +103,10 @@ export class TypeMatcher {
      * 
      * @param expectedType  an expected type name to match.
      * @param actualType    an actual type to match defined by type code.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      */
-    public static matchTypeByName(expectedType: string, actualType: TypeCode): boolean {
+    public static matchTypeByName(expectedType: string, actualType: TypeCode, actualValue: any = null): boolean {
         if (expectedType == null)
         	return true;
         if (actualType == null)
@@ -109,20 +118,30 @@ export class TypeMatcher {
             return true;
         else if (expectedType == "int" || expectedType == "integer") {
             return actualType == TypeCode.Integer
+                // Special provisions for dynamic data
                 || actualType == TypeCode.Long;
         } else if (expectedType == "long") {
-            return actualType == TypeCode.Long;
+            return actualType == TypeCode.Long
+                // Special provisions for dynamic data
+                || actualType == TypeCode.Integer;
         } else if (expectedType == "float") {
             return actualType == TypeCode.Float
-                || actualType == TypeCode.Double;
+                // Special provisions for dynamic data
+                || actualType == TypeCode.Double
+                || actualType == TypeCode.Integer
+                || actualType == TypeCode.Long;
         } else if (expectedType == "double") {
-            return actualType == TypeCode.Double;
+            return actualType == TypeCode.Double
+                // Special provisions fro dynamic data
+                || actualType == TypeCode.Float;
         } else if (expectedType == "string") {
             return actualType == TypeCode.String;
         } else if (expectedType == "bool" || expectedType == "boolean") {
             return actualType == TypeCode.Boolean;
         } else if (expectedType == "date" || expectedType == "datetime") {
-            return actualType == TypeCode.DateTime;
+            return actualType == TypeCode.DateTime
+                // Special provisions fro dynamic data
+                || (actualType == TypeCode.String && DateTimeConverter.toNullableDateTime(actualValue) != null);
         } else if (expectedType == "timespan" || expectedType == "duration") {
             return actualType == TypeCode.Integer
                 || actualType == TypeCode.Long

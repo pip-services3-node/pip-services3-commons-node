@@ -26,12 +26,13 @@ export declare class TypeMatcher {
      *
      * @param expectedType  an expected type to match.
      * @param actualType    an actual type to match.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      *
      * @see [[matchTypeByName]]
      * @see [[matchTypeByName]] (for matching by types' string names)
      */
-    static matchType(expectedType: any, actualType: TypeCode): boolean;
+    static matchType(expectedType: any, actualType: TypeCode, actualValue?: any): boolean;
     /**
      * Matches expected type to a type of a value.
      *
@@ -45,7 +46,8 @@ export declare class TypeMatcher {
      *
      * @param expectedType  an expected type name to match.
      * @param actualType    an actual type to match defined by type code.
+     * @param actualValue   an optional value to match its type to the expected one.
      * @returns true if types are matching and false if they don't.
      */
-    static matchTypeByName(expectedType: string, actualType: TypeCode): boolean;
+    static matchTypeByName(expectedType: string, actualType: TypeCode, actualValue?: any): boolean;
 }
