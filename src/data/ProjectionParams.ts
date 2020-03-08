@@ -58,7 +58,7 @@ export class ProjectionParams extends Array<string> {
                 builder += ',';
             }
 
-            builder += super[index];
+            builder += this[index];
         }
 
         return builder;
