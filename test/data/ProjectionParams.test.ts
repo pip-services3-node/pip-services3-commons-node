@@ -19,6 +19,12 @@ suite('ProjectionParams', ()=> {
         assert.equal("field3", parameters[2]);
     });
     
+    test('Convert to string', () => {
+        let parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
+
+        assert.equal(typeof(parameters.toString()), "string")
+    });
+
     test('Parse', () => {
         let parameters = ProjectionParams.fromString("field1", "field2", "field3");
 
