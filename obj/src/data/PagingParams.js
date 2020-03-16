@@ -37,6 +37,10 @@ var PagingParams = /** @class */ (function () {
         this.skip = IntegerConverter_1.IntegerConverter.toNullableInteger(skip);
         this.take = IntegerConverter_1.IntegerConverter.toNullableInteger(take);
         this.total = BooleanConverter_1.BooleanConverter.toBooleanWithDefault(total, false);
+        // This is for correctly using PagingParams with gRPC. gRPC defaults to 0 when take is null,
+        // so we have to set it back to null if we get 0 in the constructor.
+        if (this.take == 0)
+            this.take = null;
     }
     /**
      * Gets the number of items to skip.

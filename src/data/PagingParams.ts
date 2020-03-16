@@ -37,9 +37,13 @@ export class PagingParams {
 	 * @param total 	true to return the total number of items.
 	 */
     public constructor(skip: any = null, take: any = null, total: any = null) {
-        this.skip = IntegerConverter.toNullableInteger(skip);
-        this.take = IntegerConverter.toNullableInteger(take);
-        this.total = BooleanConverter.toBooleanWithDefault(total, false);
+		this.skip = IntegerConverter.toNullableInteger(skip);
+		this.take = IntegerConverter.toNullableInteger(take);
+		this.total = BooleanConverter.toBooleanWithDefault(total, false);
+		// This is for correctly using PagingParams with gRPC. gRPC defaults to 0 when take is null,
+		// so we have to set it back to null if we get 0 in the constructor.
+		if(this.take == 0) 
+			this.take = null;
     }
 	
 	/**

@@ -71,7 +71,7 @@ var ProjectionParams = /** @class */ (function (_super) {
             if (index > 0) {
                 builder += ',';
             }
-            builder += _super.prototype[index];
+            builder += this[index];
         }
         return builder;
     };

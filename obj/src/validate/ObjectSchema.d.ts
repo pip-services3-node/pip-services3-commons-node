@@ -52,12 +52,13 @@ export declare class ObjectSchema extends Schema {
      *
      * @returns true to allow undefined properties and false to disallow.
      */
+    get isUndefinedAllowed(): boolean;
     /**
-    * Sets flag to allow undefined properties
-    *
-    * @param value     true to allow undefined properties and false to disallow.
-    */
-    isUndefinedAllowed: boolean;
+     * Sets flag to allow undefined properties
+     *
+     * @param value     true to allow undefined properties and false to disallow.
+     */
+    set isUndefinedAllowed(value: boolean);
     /**
      * Sets flag to allow undefined properties
      *
