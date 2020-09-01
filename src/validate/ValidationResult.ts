@@ -89,4 +89,15 @@ export class ValidationResult {
     public getActual(): any {
         return this._actual; 
     }
+
+    public toJSON(){
+        return {
+             path: this._path,
+             type: this._type,
+             code: this._code,
+             message: this._message,
+             expected: this._expected,
+             actual: this._actual
+        }
+    }
 }

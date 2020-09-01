@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProjectionParams = void 0;
 /** @module data */
 var AnyValueArray_1 = require("./AnyValueArray");
 /** @hidden */

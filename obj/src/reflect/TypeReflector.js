@@ -7,6 +7,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeReflector = void 0;
 /** @module reflect */
 /** @hidden */
 var _ = require('lodash');

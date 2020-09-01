@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExcludedRule = void 0;
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");
 var ObjectComparator_1 = require("./ObjectComparator");

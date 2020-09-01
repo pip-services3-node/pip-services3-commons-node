@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PagingParams = void 0;
 /** @module data */
 var IntegerConverter_1 = require("../convert/IntegerConverter");
 var BooleanConverter_1 = require("../convert/BooleanConverter");

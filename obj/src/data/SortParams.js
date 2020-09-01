@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SortParams = void 0;
 /**
  * Defines a field name and order used to sort query results.
  *

@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FilterParams = void 0;
 /** @module data */
 var StringValueMap_1 = require("./StringValueMap");
 /**

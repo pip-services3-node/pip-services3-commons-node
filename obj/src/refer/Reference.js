@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Reference = void 0;
 /** @module refer */
 var Descriptor_1 = require("./Descriptor");
 /**

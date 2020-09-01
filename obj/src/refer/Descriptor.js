@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Descriptor = void 0;
 /** @module refer */
 var ConfigException_1 = require("../errors/ConfigException");
 /**

@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MapSchema = void 0;
 /** @module validate */
 /** @hidden */
 var _ = require('lodash');

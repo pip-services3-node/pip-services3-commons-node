@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConfigParams = void 0;
 /** @module config */
 /** @hidden */
 var _ = require('lodash');

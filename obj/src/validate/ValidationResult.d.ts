@@ -61,4 +61,12 @@ export declare class ValidationResult {
      * @returns the actual value.
      */
     getActual(): any;
+    toJSON(): {
+        path: string;
+        type: ValidationResultType;
+        code: string;
+        message: string;
+        expected: any;
+        actual: any;
+    };
 }

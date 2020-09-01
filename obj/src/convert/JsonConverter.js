@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.JsonConverter = void 0;
 var TypeConverter_1 = require("./TypeConverter");
 var MapConverter_1 = require("./MapConverter");
 /**

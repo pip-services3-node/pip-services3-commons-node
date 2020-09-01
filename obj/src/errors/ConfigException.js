@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConfigException = void 0;
 /** @module errors */
 var ErrorCategory_1 = require("./ErrorCategory");
 var ApplicationException_1 = require("./ApplicationException");
