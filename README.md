@@ -78,6 +78,41 @@ export class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
 }
 ```
 
+## Configuration
+
+To automate the configuration of components from a file, you can use the following method.
+
+config.yml
+
+```yml
+- descriptor: mygroup:mycomponent1:default:default:1.0
+  param1: 12345
+  param2: ABCDE
+```
+
+Load config
+
+```typescript
+let configReader = new YamlConfigReader("config.yml");
+
+// used to parameterize the reader
+let parameters = ConfigParams.fromTuples("descriptor","group", "param1", 123, "param2", "ABC"); 
+
+let component = new MyComponentA();
+
+configReader.readConfig("correlationId", parameters, (err, config) => {
+    component.configure(config);
+});
+
+```
+
+You can read in detail about the process of configuring components and using configurations in the article: [Configuration](https://www.pipservices.org/recipies/configuration)
+
+For detailed settings and parameters, see the description of the concrete component.
+
+* [DependencyResolver](https://github.com/pip-services3-node/pip-services3-commons-node/blob/master/src/refer/DependencyResolver.ts)
+
+
 ## Develop
 
 For development you shall install the following prerequisites:
