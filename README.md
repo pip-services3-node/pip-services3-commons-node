@@ -78,6 +78,37 @@ export class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
 }
 ```
 
+## Configuration
+
+To automate the configuration of components, you can use next way:
+
+```typescript
+let config = ConfigParams.fromTuples(
+    "param1", "ABC",
+    "param2", 123
+);
+```
+
+You can also set the default parameters:
+```typescript
+let defaultConfig = ConfigParams.fromTuples ( 
+    'param1', "default config 1", 
+    'param2', 0 
+); 
+
+config = config.setDefaults(defaultConfig);
+```
+
+And configure your component:
+
+```typescript
+let component = new MyComponentA()
+component.configure(config)
+```
+For detailed settings and parameters, see the description of the concrete component.
+
+For more details see: [Configuration](https://www.pipservices.org/recipies/configuration)
+
 ## Develop
 
 For development you shall install the following prerequisites:
