@@ -21,7 +21,13 @@ This module contains the following packages:
 * [Change Log](CHANGELOG.md)
 * [Get Help](https://www.pipservices.org/community/help)
 * [Contribute](https://www.pipservices.org/community/contribute)
-* [Recipies](https://www.pipservices.org/docs/recipes/overview)
+
+* [Active Logic](https://www.pipservices.org/recipies/active-logic) - active buisness logic using FixRateTimer
+* [Configuration](https://www.pipservices.org/recipies/configuration) - implement Configurable pattern. Implements IConfigurable and using ConfigParams and others.
+* [Memory persistence](https://www.pipservices.org/recipies/memory-persistence) - data access patterns using FilterParams and PagingParams
+* [Component References](https://www.pipservices.org/recipies/references) - implements Locator pattern using IReferences, Descriptor, DependencyResolver and others.
+* [Component lifecycle](https://www.pipservices.org/recipies/component-lifecycle) - describes components lyfe circle and use IClosable, IOpenable, IExecutable interfaceses and others.
+* [Data Microservice. Step 2](https://www.pipservices.org/docs/tutorials/data-microservice/data-objects) - show how to implements data validation adn using ObjectSchema and TypeCode.
 
 ## Use
 
