@@ -80,7 +80,7 @@ export class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
 
 ## Configuration
 
-Most of the components from this module have the ability to customize their work without changing the code.
+The components from this module have the ability to customize their work without changing the code.
 The component is configured using the configuration file in the yaml or json format.
 For example, consider the process of configuring through a yaml file.
 
