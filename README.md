@@ -80,38 +80,24 @@ export class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
 
 ## Configuration
 
-To automate the configuration of components from a file, you can use the following method.
+Most of the components from this module have the ability to customize their work without changing the code.
+The component is configured using the configuration file in the yaml or json format.
+For example, consider the process of configuring through a yaml file.
+
+To pass parameters to a component, you first need to specify its descriptor, and then configure it below. Component settings can be divided into groups, so for some parameters, you first need to specify a group, and then set a specific parameter in this group.
 
 config.yml
 
 ```yml
 - descriptor: mygroup:mycomponent1:default:default:1.0
-  param1: 12345
-  param2: ABCDE
+  group:
+    param1: 12345
+    param2: ABCDE
 ```
 
-Load config
+Each component has its own set of parameters; for convenience, the list of components and the list of parameters for them are given in the following link [Components list](CONFIGURATION.md).
 
-```typescript
-let configReader = new YamlConfigReader("config.yml");
-
-// used to parameterize the reader
-let parameters = ConfigParams.fromTuples("descriptor","group", "param1", 123, "param2", "ABC"); 
-
-let component = new MyComponentA();
-
-configReader.readConfig("correlationId", parameters, (err, config) => {
-    component.configure(config);
-});
-
-```
-
-You can read in detail about the process of configuring components and using configurations in the article: [Configuration](https://www.pipservices.org/recipies/configuration)
-
-For detailed settings and parameters, see the description of the concrete component.
-
-* [DependencyResolver](https://github.com/pip-services3-node/pip-services3-commons-node/blob/master/src/refer/DependencyResolver.ts)
-
+If you are developing your own component from scratch or inheriting from an existing component and want to add your own set of parameters to it, then [Configuration](https://www.pipservices.org/recipies/configuration) article will help you understand this issue.
 
 ## Develop
 
