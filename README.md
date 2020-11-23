@@ -22,6 +22,7 @@ This module contains the following packages:
 * [Get Help](https://www.pipservices.org/community/help)
 * [Contribute](https://www.pipservices.org/community/contribute)
 
+<a name="articles"></a>Articles, where using components from this module:
 * [Active Logic](https://www.pipservices.org/recipies/active-logic) - active buisness logic using FixRateTimer
 * [Configuration](https://www.pipservices.org/recipies/configuration) - implement Configurable pattern. Implements IConfigurable and using ConfigParams and others.
 * [Memory persistence](https://www.pipservices.org/recipies/memory-persistence) - data access patterns using FilterParams and PagingParams
