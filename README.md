@@ -17,18 +17,15 @@ This module contains the following packages:
 
 <a name="links"></a> Quick links:
 
+* [Configuration Pattern](https://www.pipservices.org/recipies/configuration) 
+* [Locator Pattern](https://www.pipservices.org/recipies/references)
+* [Component Lifecycle](https://www.pipservices.org/recipies/component-lifecycle)
+* [Components with Active Logic](https://www.pipservices.org/recipies/active-logic)
+* [Data Patterns](https://www.pipservices.org/recipies/memory-persistence)
 * [API Reference](https://pip-services3-node.github.io/pip-services3-commons-node/globals.html)
 * [Change Log](CHANGELOG.md)
 * [Get Help](https://www.pipservices.org/community/help)
 * [Contribute](https://www.pipservices.org/community/contribute)
-
-<a name="articles"></a>Articles, where using components from this module:
-* [Active Logic](https://www.pipservices.org/recipies/active-logic) - active buisness logic using FixRateTimer
-* [Configuration](https://www.pipservices.org/recipies/configuration) - implement Configurable pattern. Implements IConfigurable and using ConfigParams and others.
-* [Memory persistence](https://www.pipservices.org/recipies/memory-persistence) - data access patterns using FilterParams and PagingParams
-* [Component References](https://www.pipservices.org/recipies/references) - implements Locator pattern using IReferences, Descriptor, DependencyResolver and others.
-* [Component lifecycle](https://www.pipservices.org/recipies/component-lifecycle) - describes components lyfe circle and use IClosable, IOpenable, IExecutable interfaceses and others.
-* [Data Microservice. Step 2](https://www.pipservices.org/docs/tutorials/data-microservice/data-objects) - show how to implements data validation adn using ObjectSchema and TypeCode.
 
 ## Use
 
@@ -86,26 +83,32 @@ export class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
 }
 ```
 
-## Configuration
+Then here is how the component can be used in the code
 
-The components from this module have the ability to customize their work without changing the code.
-The component is configured using the configuration file in the yaml or json format.
-For example, consider the process of configuring through a yaml file.
+```typescript
+import { ConfigParams } from 'pip-services3-commons-node';
+import { References } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node';
 
-To pass parameters to a component, you first need to specify its descriptor, and then configure it below. Component settings can be divided into groups, so for some parameters, you first need to specify a group, and then set a specific parameter in this group.
+let myComponentA = new MyComponentA();
 
-config.yml
+// Configure the component
+myComponentA.configure(ConfigParams.fromTuples(
+  'param1', 'XYZ',
+  'param2', 987
+));
 
-```yml
-- descriptor: mygroup:mycomponent1:default:default:1.0
-  group:
-    param1: 12345
-    param2: ABCDE
+// Set references to the component
+myComponentB.setReferences(References.fromTuples(
+  new Descriptor("myservice", "mycomponent-b", "default", "default", "1.0", myComponentB
+));
+
+// Open the component
+myComponentB.open("123", (err) => {
+   console.log("MyComponentA has been opened.");
+   ...
+});
 ```
-
-Each component has its own set of parameters; for convenience, the list of components and the list of parameters for them are given in the following link [Components list](CONFIGURATION.md).
-
-If you are developing your own component from scratch or inheriting from an existing component and want to add your own set of parameters to it, then [Configuration](https://www.pipservices.org/recipies/configuration) article will help you understand this issue.
 
 ## Develop
 
