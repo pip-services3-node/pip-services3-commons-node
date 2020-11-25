@@ -80,14 +80,21 @@
 				</ul>
 				<p><a name="links"></a> Quick links:</p>
 				<ul>
+					<li><a href="https://www.pipservices.org/recipies/configuration">Configuration Pattern</a> </li>
+					<li><a href="https://www.pipservices.org/recipies/references">Locator Pattern</a></li>
+					<li><a href="https://www.pipservices.org/recipies/component-lifecycle">Component Lifecycle</a></li>
+					<li><a href="https://www.pipservices.org/recipies/active-logic">Components with Active Logic</a></li>
+					<li><a href="https://www.pipservices.org/recipies/memory-persistence">Data Patterns</a></li>
 					<li><a href="https://pip-services3-node.github.io/pip-services3-commons-node/globals.html">API Reference</a></li>
 					<li><a href="CHANGELOG.md">Change Log</a></li>
+					<li><a href="https://www.pipservices.org/community/help">Get Help</a></li>
+					<li><a href="https://www.pipservices.org/community/contribute">Contribute</a></li>
 				</ul>
 				<h2 id="use">Use</h2>
 				<p>Install the NPM package as</p>
-				<pre><code class="lang-bash">npm install pip-services3-commons-node
+				<pre><code class="lang-bash">npm install pip-services3-commons-node --save
 </code></pre>
-				<p>Then you are ready to start using the Pip.Services patterns to augment your backend implementation.</p>
+				<p>Then you are ready to start using the Pip.Services patterns to augment your backend code.</p>
 				<p>For instance, here is how you can implement a component, that receives configuration, get assigned references,
 				can be opened and closed using the patterns from this module.</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { IConfigurable } <span class="hljs-keyword">from</span> <span class="hljs-string">'pip-services3-commons-node'</span>;
@@ -132,6 +139,30 @@
 
 }
 </code></pre>
+				<p>Then here is how the component can be used in the code</p>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { ConfigParams } <span class="hljs-keyword">from</span> <span class="hljs-string">'pip-services3-commons-node'</span>;
+<span class="hljs-keyword">import</span> { References } <span class="hljs-keyword">from</span> <span class="hljs-string">'pip-services3-commons-node'</span>;
+<span class="hljs-keyword">import</span> { Descriptor } <span class="hljs-keyword">from</span> <span class="hljs-string">'pip-services3-commons-node'</span>;
+
+<span class="hljs-keyword">let</span> myComponentA = <span class="hljs-keyword">new</span> MyComponentA();
+
+<span class="hljs-comment">// Configure the component</span>
+myComponentA.configure(ConfigParams.fromTuples(
+  <span class="hljs-string">'param1'</span>, <span class="hljs-string">'XYZ'</span>,
+  <span class="hljs-string">'param2'</span>, <span class="hljs-number">987</span>
+));
+
+<span class="hljs-comment">// Set references to the component</span>
+myComponentB.setReferences(References.fromTuples(
+  <span class="hljs-keyword">new</span> Descriptor(<span class="hljs-string">"myservice"</span>, <span class="hljs-string">"mycomponent-b"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"default"</span>, <span class="hljs-string">"1.0"</span>, myComponentB
+));
+
+<span class="hljs-comment">// Open the component</span>
+myComponentB.open(<span class="hljs-string">"123"</span>, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"MyComponentA has been opened."</span>);
+   ...
+});
+</code></pre>
 				<h2 id="develop">Develop</h2>
 				<p>For development you shall install the following prerequisites:</p>
 				<ul>
@@ -169,412 +200,37 @@
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_command_.html">"commands/<wbr>Command"</a>
+						<a href="modules/commands.html">commands</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_commandset_.html">"commands/<wbr>Command<wbr>Set"</a>
+						<a href="modules/config.html">config</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_event_.html">"commands/<wbr>Event"</a>
+						<a href="modules/convert.html">convert</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_icommand_.html">"commands/ICommand"</a>
+						<a href="modules/data.html">data</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_icommandinterceptor_.html">"commands/ICommand<wbr>Interceptor"</a>
+						<a href="modules/errors.html">errors</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_icommandable_.html">"commands/ICommandable"</a>
+						<a href="modules/index.html">index</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_ievent_.html">"commands/IEvent"</a>
+						<a href="modules/random.html">random</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_ieventlistener_.html">"commands/IEvent<wbr>Listener"</a>
+						<a href="modules/refer.html">refer</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_interceptedcommand_.html">"commands/<wbr>Intercepted<wbr>Command"</a>
+						<a href="modules/reflect.html">reflect</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_commands_index_.html">"commands/index"</a>
+						<a href="modules/run.html">run</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_configparams_.html">"config/<wbr>Config<wbr>Params"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_iconfigurable_.html">"config/IConfigurable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_ireconfigurable_.html">"config/IReconfigurable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_nameresolver_.html">"config/<wbr>Name<wbr>Resolver"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_optionresolver_.html">"config/<wbr>Option<wbr>Resolver"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_index_.html">"config/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_arrayconverter_.html">"convert/<wbr>Array<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_booleanconverter_.html">"convert/<wbr>Boolean<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_datetimeconverter_.html">"convert/<wbr>Date<wbr>Time<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_doubleconverter_.html">"convert/<wbr>Double<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_floatconverter_.html">"convert/<wbr>Float<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_integerconverter_.html">"convert/<wbr>Integer<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_jsonconverter_.html">"convert/<wbr>Json<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_longconverter_.html">"convert/<wbr>Long<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_mapconverter_.html">"convert/<wbr>Map<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_recursivemapconverter_.html">"convert/<wbr>Recursive<wbr>Map<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_stringconverter_.html">"convert/<wbr>String<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_typecode_.html">"convert/<wbr>Type<wbr>Code"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_typeconverter_.html">"convert/<wbr>Type<wbr>Converter"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_convert_index_.html">"convert/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_anyvalue_.html">"data/<wbr>Any<wbr>Value"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_anyvaluearray_.html">"data/<wbr>Any<wbr>Value<wbr>Array"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_anyvaluemap_.html">"data/<wbr>Any<wbr>Value<wbr>Map"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_datapage_.html">"data/<wbr>Data<wbr>Page"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_filterparams_.html">"data/<wbr>Filter<wbr>Params"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_ichangeable_.html">"data/IChangeable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_icloneable_.html">"data/ICloneable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_iidentifiable_.html">"data/IIdentifiable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_inamed_.html">"data/INamed"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_istringidentifiable_.html">"data/IString<wbr>Identifiable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_itrackable_.html">"data/ITrackable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_iversioned_.html">"data/IVersioned"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_idgenerator_.html">"data/<wbr>IdGenerator"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_multistring_.html">"data/<wbr>Multi<wbr>String"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_pagingparams_.html">"data/<wbr>Paging<wbr>Params"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_projectionparams_.html">"data/<wbr>Projection<wbr>Params"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_sortfield_.html">"data/<wbr>Sort<wbr>Field"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_sortparams_.html">"data/<wbr>Sort<wbr>Params"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_stringvaluemap_.html">"data/<wbr>String<wbr>Value<wbr>Map"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_tagsprocessor_.html">"data/<wbr>Tags<wbr>Processor"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_data_index_.html">"data/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_applicationexception_.html">"errors/<wbr>Application<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_applicationexceptionfactory_.html">"errors/<wbr>Application<wbr>Exception<wbr>Factory"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_badrequestexception_.html">"errors/<wbr>Bad<wbr>Request<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_configexception_.html">"errors/<wbr>Config<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_conflictexception_.html">"errors/<wbr>Conflict<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_connectionexception_.html">"errors/<wbr>Connection<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_errorcategory_.html">"errors/<wbr>Error<wbr>Category"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_errordescription_.html">"errors/<wbr>Error<wbr>Description"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_errordescriptionfactory_.html">"errors/<wbr>Error<wbr>Description<wbr>Factory"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_fileexception_.html">"errors/<wbr>File<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_internalexception_.html">"errors/<wbr>Internal<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_invalidstateexception_.html">"errors/<wbr>Invalid<wbr>State<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_invocationexception_.html">"errors/<wbr>Invocation<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_notfoundexception_.html">"errors/<wbr>Not<wbr>Found<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_unauthorizedexception_.html">"errors/<wbr>Unauthorized<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_unknownexception_.html">"errors/<wbr>Unknown<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_unsupportedexception_.html">"errors/<wbr>Unsupported<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_errors_index_.html">"errors/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomarray_.html">"random/<wbr>Random<wbr>Array"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomboolean_.html">"random/<wbr>Random<wbr>Boolean"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomdatetime_.html">"random/<wbr>Random<wbr>Date<wbr>Time"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomdouble_.html">"random/<wbr>Random<wbr>Double"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomfloat_.html">"random/<wbr>Random<wbr>Float"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randominteger_.html">"random/<wbr>Random<wbr>Integer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomstring_.html">"random/<wbr>Random<wbr>String"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_randomtext_.html">"random/<wbr>Random<wbr>Text"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_random_index_.html">"random/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_dependencyresolver_.html">"refer/<wbr>Dependency<wbr>Resolver"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_descriptor_.html">"refer/<wbr>Descriptor"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_ireferenceable_.html">"refer/IReferenceable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_ireferences_.html">"refer/IReferences"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_iunreferenceable_.html">"refer/IUnreferenceable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_reference_.html">"refer/<wbr>Reference"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_referenceexception_.html">"refer/<wbr>Reference<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_referencer_.html">"refer/<wbr>Referencer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_references_.html">"refer/<wbr>References"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_refer_index_.html">"refer/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_methodreflector_.html">"reflect/<wbr>Method<wbr>Reflector"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_objectreader_.html">"reflect/<wbr>Object<wbr>Reader"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_objectwriter_.html">"reflect/<wbr>Object<wbr>Writer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_propertyreflector_.html">"reflect/<wbr>Property<wbr>Reflector"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_recursiveobjectreader_.html">"reflect/<wbr>Recursive<wbr>Object<wbr>Reader"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_recursiveobjectwriter_.html">"reflect/<wbr>Recursive<wbr>Object<wbr>Writer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_typedescriptor_.html">"reflect/<wbr>Type<wbr>Descriptor"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_typematcher_.html">"reflect/<wbr>Type<wbr>Matcher"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_typereflector_.html">"reflect/<wbr>Type<wbr>Reflector"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_reflect_index_.html">"reflect/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_cleaner_.html">"run/<wbr>Cleaner"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_closer_.html">"run/<wbr>Closer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_executor_.html">"run/<wbr>Executor"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_fixedratetimer_.html">"run/<wbr>Fixed<wbr>Rate<wbr>Timer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_icleanable_.html">"run/ICleanable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_iclosable_.html">"run/IClosable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_iexecutable_.html">"run/IExecutable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_inotifiable_.html">"run/INotifiable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_iopenable_.html">"run/IOpenable"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_iparameterized_.html">"run/IParameterized"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_notifier_.html">"run/<wbr>Notifier"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_opener_.html">"run/<wbr>Opener"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_parameters_.html">"run/<wbr>Parameters"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_run_index_.html">"run/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_andrule_.html">"validate/<wbr>And<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_arrayschema_.html">"validate/<wbr>Array<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_atleastoneexistsrule_.html">"validate/<wbr>AtLeast<wbr>One<wbr>Exists<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_excludedrule_.html">"validate/<wbr>Excluded<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_filterparamsschema_.html">"validate/<wbr>Filter<wbr>Params<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_ivalidationrule_.html">"validate/IValidation<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_includedrule_.html">"validate/<wbr>Included<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_mapschema_.html">"validate/<wbr>Map<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_notrule_.html">"validate/<wbr>Not<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_objectcomparator_.html">"validate/<wbr>Object<wbr>Comparator"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_objectschema_.html">"validate/<wbr>Object<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_onlyoneexistsrule_.html">"validate/<wbr>Only<wbr>One<wbr>Exists<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_orrule_.html">"validate/<wbr>OrRule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_pagingparamsschema_.html">"validate/<wbr>Paging<wbr>Params<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_projectionparamsschema_.html">"validate/<wbr>Projection<wbr>Params<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_propertiescomparisonrule_.html">"validate/<wbr>Properties<wbr>Comparison<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_propertyschema_.html">"validate/<wbr>Property<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_schema_.html">"validate/<wbr>Schema"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_validationexception_.html">"validate/<wbr>Validation<wbr>Exception"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_validationresult_.html">"validate/<wbr>Validation<wbr>Result"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_validationresulttype_.html">"validate/<wbr>Validation<wbr>Result<wbr>Type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_valuecomparisonrule_.html">"validate/<wbr>Value<wbr>Comparison<wbr>Rule"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_validate_index_.html">"validate/index"</a>
+						<a href="modules/validate.html">validate</a>
 					</li>
 				</ul>
 			</nav>
