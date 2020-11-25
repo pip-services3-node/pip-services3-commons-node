@@ -20,8 +20,8 @@ import { RecursiveObjectReader } from '../reflect/RecursiveObjectReader';
  * <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code>
  * 
  * ConfigParams are used to pass configurations to [[IConfigurable]] objects.
- * They also serve as a basis for more concrete configurations such as [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]]
- * or [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams]] (in the Pip.Services components package).
+ * They also serve as a basis for more concrete configurations such as [[https://pip-services3-node.github.io/pip-services3-components-node/classes/connect.connectionparams.html ConnectionParams]]
+ * or [[https://pip-services3-node.github.io/pip-services3-components-node/classes/auth.credentialparams.html CredentialParams]] (in the Pip.Services components package).
  * 
  * @see [[IConfigurable]]
  * @see [[StringValueMap]]
