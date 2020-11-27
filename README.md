@@ -1,7 +1,9 @@
 # <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Portable Abstractions and Patterns for Node.js
 
 This module is a part of the [Pip.Services](http://pip.services.org) polyglot microservices toolkit.
-It contains a set of basic patterns used in microservices or backend services. Also the module provides a reasonably thin abstraction layer over most fundamental functions across all languages supported by the toolkit to facilitate symmetric implementation.
+It provides a set of basic patterns used in microservices or backend services.
+Also the module implemenets a reasonably thin abstraction layer over most fundamental functions across
+all languages supported by the toolkit to facilitate symmetric implementation.
 
 This module contains the following packages:
 - **Commands** - commanding and eventing patterns
