@@ -7,7 +7,7 @@ let async = require('async');
 /**
  * Helper class that closes previously opened components.
  * 
- * [[ICloseable]]
+ * [[IClosable]]
  */
 export class Closer {
 	/**
