@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Schema = void 0;
 /** @module validate */
 /** @hidden */
 var _ = require('lodash');

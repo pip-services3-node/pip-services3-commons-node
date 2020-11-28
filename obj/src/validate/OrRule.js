@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrRule = void 0;
 /**
  * Validation rule to combine rules with OR logical operation.
  * When one of rules returns no errors, than this rule also returns no errors.

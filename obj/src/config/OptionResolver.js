@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OptionResolver = void 0;
 /**
  * A helper class to parameters from "options" configuration section.
  *

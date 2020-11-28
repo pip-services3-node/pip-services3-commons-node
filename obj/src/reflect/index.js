@@ -14,21 +14,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * built on top of this package are portable from one language to another.
  */
 var MethodReflector_1 = require("./MethodReflector");
-Object.defineProperty(exports, "MethodReflector", { enumerable: true, get: function () { return MethodReflector_1.MethodReflector; } });
+exports.MethodReflector = MethodReflector_1.MethodReflector;
 var ObjectReader_1 = require("./ObjectReader");
-Object.defineProperty(exports, "ObjectReader", { enumerable: true, get: function () { return ObjectReader_1.ObjectReader; } });
+exports.ObjectReader = ObjectReader_1.ObjectReader;
 var ObjectWriter_1 = require("./ObjectWriter");
-Object.defineProperty(exports, "ObjectWriter", { enumerable: true, get: function () { return ObjectWriter_1.ObjectWriter; } });
+exports.ObjectWriter = ObjectWriter_1.ObjectWriter;
 var PropertyReflector_1 = require("./PropertyReflector");
-Object.defineProperty(exports, "PropertyReflector", { enumerable: true, get: function () { return PropertyReflector_1.PropertyReflector; } });
+exports.PropertyReflector = PropertyReflector_1.PropertyReflector;
 var RecursiveObjectReader_1 = require("./RecursiveObjectReader");
-Object.defineProperty(exports, "RecursiveObjectReader", { enumerable: true, get: function () { return RecursiveObjectReader_1.RecursiveObjectReader; } });
+exports.RecursiveObjectReader = RecursiveObjectReader_1.RecursiveObjectReader;
 var RecursiveObjectWriter_1 = require("./RecursiveObjectWriter");
-Object.defineProperty(exports, "RecursiveObjectWriter", { enumerable: true, get: function () { return RecursiveObjectWriter_1.RecursiveObjectWriter; } });
+exports.RecursiveObjectWriter = RecursiveObjectWriter_1.RecursiveObjectWriter;
 var TypeDescriptor_1 = require("./TypeDescriptor");
-Object.defineProperty(exports, "TypeDescriptor", { enumerable: true, get: function () { return TypeDescriptor_1.TypeDescriptor; } });
+exports.TypeDescriptor = TypeDescriptor_1.TypeDescriptor;
 var TypeMatcher_1 = require("./TypeMatcher");
-Object.defineProperty(exports, "TypeMatcher", { enumerable: true, get: function () { return TypeMatcher_1.TypeMatcher; } });
+exports.TypeMatcher = TypeMatcher_1.TypeMatcher;
 var TypeReflector_1 = require("./TypeReflector");
-Object.defineProperty(exports, "TypeReflector", { enumerable: true, get: function () { return TypeReflector_1.TypeReflector; } });
+exports.TypeReflector = TypeReflector_1.TypeReflector;
 //# sourceMappingURL=index.js.map

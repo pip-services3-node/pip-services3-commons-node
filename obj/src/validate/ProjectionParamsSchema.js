@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProjectionParamsSchema = void 0;
 /** @module validate */
 var TypeCode_1 = require("../convert/TypeCode");
 var ArraySchema_1 = require("./ArraySchema");

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TypeMatcher = void 0;
 /** @module reflect */
 /** @hidden */
 var _ = require('lodash');

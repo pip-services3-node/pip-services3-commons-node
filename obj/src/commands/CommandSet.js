@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CommandSet = void 0;
 var InterceptedCommand_1 = require("./InterceptedCommand");
 var BadRequestException_1 = require("../errors/BadRequestException");
 var ValidationException_1 = require("../validate/ValidationException");

@@ -1,7 +1,7 @@
 /**
  * Helper class that closes previously opened components.
  *
- * [[ICloseable]]
+ * [[IClosable]]
  */
 export declare class Closer {
     /**

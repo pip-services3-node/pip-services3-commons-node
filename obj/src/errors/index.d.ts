@@ -10,7 +10,7 @@
  *
  * Way to use:
  * - An existing exception class can be used.
- * - A child class that extends ApplicationException can we written.
+ * - A child class that extends [[ApplicationException]] can we written.
  * - A exception can be wrapped around (into?) an existing application exception.
  *
  * Exceptions are serializable. The exception classes themselves are not serializable, but

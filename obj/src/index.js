@@ -1,24 +1,17 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-};
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module index */
-__exportStar(require("./commands"), exports);
-__exportStar(require("./config"), exports);
-__exportStar(require("./convert"), exports);
-__exportStar(require("./errors"), exports);
-__exportStar(require("./data"), exports);
-__exportStar(require("./random"), exports);
-__exportStar(require("./refer"), exports);
-__exportStar(require("./reflect"), exports);
-__exportStar(require("./validate"), exports);
-__exportStar(require("./run"), exports);
+__export(require("./commands"));
+__export(require("./config"));
+__export(require("./convert"));
+__export(require("./errors"));
+__export(require("./data"));
+__export(require("./random"));
+__export(require("./refer"));
+__export(require("./reflect"));
+__export(require("./validate"));
+__export(require("./run"));
 //# sourceMappingURL=index.js.map

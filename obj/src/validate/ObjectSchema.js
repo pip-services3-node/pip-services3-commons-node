@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectSchema = void 0;
 var ValidationResult_1 = require("./ValidationResult");
 var ValidationResultType_1 = require("./ValidationResultType");
 var Schema_1 = require("./Schema");
@@ -88,7 +87,7 @@ var ObjectSchema = /** @class */ (function (_super) {
         set: function (value) {
             this._allowUndefined = value;
         },
-        enumerable: false,
+        enumerable: true,
         configurable: true
     });
     /**

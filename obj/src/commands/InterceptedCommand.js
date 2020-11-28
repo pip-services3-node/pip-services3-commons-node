@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InterceptedCommand = void 0;
 /**
  * Implements a [[ICommand command]] wrapped by an interceptor.
  * It allows to build command call chains. The interceptor can alter execution

@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PropertySchema = void 0;
 var Schema_1 = require("./Schema");
 /**
  * Schema to validate object properties

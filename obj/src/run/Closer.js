@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Closer = void 0;
 /** @module run */
 /** @hidden */
 var _ = require('lodash');
@@ -9,7 +8,7 @@ var async = require('async');
 /**
  * Helper class that closes previously opened components.
  *
- * [[ICloseable]]
+ * [[IClosable]]
  */
 var Closer = /** @class */ (function () {
     function Closer() {

@@ -1,7 +1,6 @@
 "use strict";
 /** @module errors */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorCategory = void 0;
 /**
  * Defines standard error categories to application exceptions
  * supported by PipServices toolkit.

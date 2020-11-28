@@ -4,7 +4,7 @@ import { IClosable } from './IClosable';
  * Interface for components that require explicit opening and closing.
  *
  * For components that perform opening on demand consider using
- * [[ICloseable]] interface instead.
+ * [[IClosable]] interface instead.
  *
  * @see [[IOpenable]]
  * @see [[Opener]]

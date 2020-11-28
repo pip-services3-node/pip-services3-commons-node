@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RecursiveMapConverter = void 0;
 /** @module convert */
 /** @hidden */
 var _ = require('lodash');

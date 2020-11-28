@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReferenceException = void 0;
 /** @module refer */
 var InternalException_1 = require("../errors/InternalException");
 /**
