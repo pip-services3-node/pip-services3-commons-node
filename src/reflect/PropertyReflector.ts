@@ -129,11 +129,13 @@ export class PropertyReflector {
 	public static getProperties(obj: any): any {
         let map: any = {};
 		
-		for (let field in obj) {
-            let fieldValue = obj[field];
+		let fields: string[] = this.getAllFieldsOfObject(obj)
+		
+		for (let index = 0; index < fields.length; index++) {
+            let fieldValue = obj[fields[index]];
         	try {
-	        	if (PropertyReflector.matchField(field, fieldValue, null))
-	        		map[field] = fieldValue;
+	        	if (PropertyReflector.matchField(fields[index], fieldValue, null))
+	        		map[fields[index]] = fieldValue;
         	} catch (ex) {
         		// Ignore exception
         	}
