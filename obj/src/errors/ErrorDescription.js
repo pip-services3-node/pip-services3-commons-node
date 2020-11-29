@@ -1,6 +1,7 @@
 "use strict";
 /** @module errors */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ErrorDescription = void 0;
 /**
  * Serializeable error description. It is use to pass information about errors
  * between microservices implemented in different languages. On the receiving side

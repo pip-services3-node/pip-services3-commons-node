@@ -34,6 +34,7 @@ export declare class PropertyReflector {
      * @returns the property value or null if property doesn't exist or introspection failed.
      */
     static getProperty(obj: any, name: string): any;
+    private static getAllFieldsOfObject;
     /**
      * Gets names of all properties implemented in specified object.
      *

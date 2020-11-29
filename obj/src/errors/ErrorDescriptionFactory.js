@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ErrorDescriptionFactory = void 0;
 /** @module errors */
 var ErrorCategory_1 = require("./ErrorCategory");
 var ErrorDescription_1 = require("./ErrorDescription");

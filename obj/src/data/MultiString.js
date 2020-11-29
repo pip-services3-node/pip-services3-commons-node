@@ -1,6 +1,7 @@
 "use strict";
 /** @module data */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MultiString = void 0;
 var StringConverter_1 = require("../convert/StringConverter");
 /**
  * An object that contains string translations for multiple languages.

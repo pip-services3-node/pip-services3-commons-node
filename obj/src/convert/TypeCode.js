@@ -1,6 +1,7 @@
 "use strict";
 /** @module convert */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeCode = void 0;
 /**
  * Codes for the data types that can be
  * converted using [[TypeConverter]].

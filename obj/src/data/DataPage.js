@@ -1,6 +1,7 @@
 "use strict";
 /** @module data */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DataPage = void 0;
 /**
  * Data transfer object that is used to pass results of paginated queries.
  * It contains items of retrieved page and optional total number of items.

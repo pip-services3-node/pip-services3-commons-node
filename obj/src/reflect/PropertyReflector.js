@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PropertyReflector = void 0;
 /** @module reflect */
 /** @hidden */
 var _ = require('lodash');
@@ -66,10 +67,11 @@ var PropertyReflector = /** @class */ (function () {
         if (name == null)
             throw new Error("Property name cannot be null");
         name = name.toLowerCase();
-        for (var field in obj) {
-            var fieldValue = obj[field];
+        var fields = this.getAllFieldsOfObject(obj);
+        for (var index = 0; index < fields.length; index++) {
+            var fieldValue = obj[fields[index]];
             try {
-                if (PropertyReflector.matchField(field, fieldValue, name))
+                if (PropertyReflector.matchField(fields[index], fieldValue, name))
                     return fieldValue;
             }
             catch (ex) {
@@ -77,6 +79,20 @@ var PropertyReflector = /** @class */ (function () {
             }
         }
         return null;
+    };
+    PropertyReflector.getAllFieldsOfObject = function (object) {
+        var properties = [];
+        // enumerable props
+        for (var prop in object) {
+            properties.push(prop.toString());
+        }
+        //non-enumerable props
+        Object.entries(Object.getOwnPropertyDescriptors(object.constructor.prototype)).forEach(function (prop) {
+            if (prop[1].get != undefined || prop[1].set != undefined) {
+                properties.push(prop[0]);
+            }
+        });
+        return properties;
     };
     /**
      * Gets names of all properties implemented in specified object.
@@ -86,10 +102,11 @@ var PropertyReflector = /** @class */ (function () {
      */
     PropertyReflector.getPropertyNames = function (obj) {
         var properties = [];
-        for (var field in obj) {
-            var fieldValue = obj[field];
-            if (PropertyReflector.matchField(field, fieldValue, null))
-                properties.push(field);
+        var fields = this.getAllFieldsOfObject(obj);
+        for (var index = 0; index < fields.length; index++) {
+            var fieldValue = obj[fields[index]];
+            if (PropertyReflector.matchField(fields[index], fieldValue, null))
+                properties.push(fields[index]);
         }
         return properties;
     };
@@ -102,11 +119,12 @@ var PropertyReflector = /** @class */ (function () {
      */
     PropertyReflector.getProperties = function (obj) {
         var map = {};
-        for (var field in obj) {
-            var fieldValue = obj[field];
+        var fields = this.getAllFieldsOfObject(obj);
+        for (var index = 0; index < fields.length; index++) {
+            var fieldValue = obj[fields[index]];
             try {
-                if (PropertyReflector.matchField(field, fieldValue, null))
-                    map[field] = fieldValue;
+                if (PropertyReflector.matchField(fields[index], fieldValue, null))
+                    map[fields[index]] = fieldValue;
             }
             catch (ex) {
                 // Ignore exception
@@ -130,11 +148,12 @@ var PropertyReflector = /** @class */ (function () {
         if (name == null)
             throw new Error("Property name cannot be null");
         var expectedName = name.toLowerCase();
-        for (var field in obj) {
-            var fieldValue = obj[field];
+        var fields = this.getAllFieldsOfObject(obj);
+        for (var index = 0; index < fields.length; index++) {
+            var fieldValue = obj[fields[index]];
             try {
-                if (PropertyReflector.matchField(field, fieldValue, expectedName)) {
-                    obj[field] = value;
+                if (PropertyReflector.matchField(fields[index], fieldValue, expectedName)) {
+                    obj[fields[index]] = value;
                     return;
                 }
             }

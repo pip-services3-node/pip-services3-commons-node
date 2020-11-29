@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Referencer = void 0;
 /** @module refer */
 /** @hidden */
 var _ = require('lodash');

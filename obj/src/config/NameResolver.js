@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NameResolver = void 0;
 var Descriptor_1 = require("../refer/Descriptor");
 /**
  * A helper class that allows to extract component name from configuration parameters.

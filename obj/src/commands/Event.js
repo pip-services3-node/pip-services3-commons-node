@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Event = void 0;
 var InvocationException_1 = require("../errors/InvocationException");
 /**
  * Concrete implementation of [[IEvent IEvent]] interface.
