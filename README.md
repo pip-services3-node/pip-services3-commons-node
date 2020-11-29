@@ -5,7 +5,7 @@ It provides a set of basic patterns used in microservices or backend services.
 Also the module implemenets a reasonably thin abstraction layer over most fundamental functions across
 all languages supported by the toolkit to facilitate symmetric implementation.
 
-This module contains the following packages:
+The module contains the following packages:
 - **Commands** - commanding and eventing patterns
 - **Config** - configuration pattern
 - **Convert** - portable value converters
