@@ -39,9 +39,7 @@
         "build": "tsc",
         "watch": "tsc --watch",
         "test": "mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
-        "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
-        "docgen": "typedoc --out docs src --mode modules --excludeExternals --excludePrivate --target ES5 --ignoreCompilerErrors",
-        "docgen2": "typedoc --out docs src --mode file --excludeExternals --target ES5 --ignoreCompilerErrors --readme docs/ApiReference.md"
+        "retest": "tsc && mocha -t 10000 -R spec -u tdd --recursive ./obj/test"
     },
     "dependencies": {
         "async": "^2.1.0",
@@ -55,8 +53,6 @@
         "@types/mocha": "*",
         "@types/node": "*",
         "chai": "^3.5.0",
-        "mocha": "^2.2.0",
-        "typedoc": "^0.11.1",
-        "typedoc-plugin-external-module-name": "git+https://github.com/hobbyguy77/typedoc-plugin-external-module-name.git"
+        "mocha": "^2.2.0"
     }
 }
