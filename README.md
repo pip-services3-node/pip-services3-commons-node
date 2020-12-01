@@ -101,12 +101,12 @@ myComponentA.configure(ConfigParams.fromTuples(
 ));
 
 // Set references to the component
-myComponentB.setReferences(References.fromTuples(
-  new Descriptor("myservice", "mycomponent-b", "default", "default", "1.0", myComponentB
+myComponentA.setReferences(References.fromTuples(
+  new Descriptor("myservice", "mycomponent-b", "default", "default", "1.0",) myComponentB
 ));
 
 // Open the component
-myComponentB.open("123", (err) => {
+myComponentA.open("123", (err) => {
    console.log("MyComponentA has been opened.");
    ...
 });
