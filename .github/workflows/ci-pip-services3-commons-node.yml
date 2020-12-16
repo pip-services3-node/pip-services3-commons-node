@@ -21,10 +21,10 @@ jobs:
 
     ############# Build and test #############
 
-    - name: Install prereq and save build number
+    - name: Build the component
       uses: pip-devops/actions/node/build@v1-2
 
-    - name: Install prereq and save build number
+    - name: Test the component
       uses: pip-devops/actions/node/test@v1-2
 
     ############# Release #############
