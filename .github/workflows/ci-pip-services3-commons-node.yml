@@ -17,15 +17,15 @@ jobs:
 
     - name: Install prereq and save build number
       id: build_info
-      uses: pip-devops/actions/node/prepare@v1-2
+      uses: pip-devops/actions/node/prepare@node-v1
 
     ############# Build and test #############
 
     - name: Build the component
-      uses: pip-devops/actions/node/build@v1-2
+      uses: pip-devops/actions/node/build@node-v1
 
     - name: Test the component
-      uses: pip-devops/actions/node/test@v1-2
+      uses: pip-devops/actions/node/test@node-v1
 
     ############# Release #############
 
@@ -36,7 +36,7 @@ jobs:
         tag: "${{ steps.build_info.outputs.component_name }}/v${{ steps.build_info.outputs.component_version }}-${{ steps.build_info.outputs.build_number }}"
 
     - name: Release binary artifacts
-      uses: pip-devops/actions/node/release@v1-2
+      uses: pip-devops/actions/node/release@node-v1
       with:
         npm-user: ${{ secrets.NPM_USER }}
         npm-pass: ${{ secrets.NPM_PASS }}
@@ -45,5 +45,5 @@ jobs:
     ############# Clear #############
 
     - name: Install prereq and save build number
-      uses: pip-devops/actions/node/clear@v1-2
+      uses: pip-devops/actions/node/clear@node-v1
     
