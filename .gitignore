@@ -4,3 +4,4 @@
 *.map
 /obj/test/**/*
 /package-lock.json
+.npmrc
