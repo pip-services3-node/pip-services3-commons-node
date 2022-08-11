@@ -1,4 +1,4 @@
-name: Pip.Services Commons Go Delivery
+name: Pip.Services Commons Node.js Delivery
 
 # Configure trigger rules
 on: 
