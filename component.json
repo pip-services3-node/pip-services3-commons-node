@@ -1,6 +1,14 @@
 {
-    "name": "pip-services3-commons-node",
-    "registry": "pipdevs",
+    "name":  "pip-services3-commons-node",
+    "type": "microservice",
+    "language": "node",
     "version": "3.0.8",
-    "build": "0"
+    "build": 0,
+    "registry": "registry.gitlab.com/eic-templates",
+    "artifacts": [
+        {
+            "name":  "<name>",
+            "type": "npm"
+        }
+    ]
 }
