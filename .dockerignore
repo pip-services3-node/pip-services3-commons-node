@@ -4,6 +4,7 @@
 /docker/docker-compose*.yml
 /docs
 /node_modules
+/package-lock.json
 /.gitignore
 /.dockerignore
 /*.sh

@@ -3,5 +3,7 @@
 /.idea
 *.map
 /obj/test/**/*
-/package-lock.json
+package-lock.json
 .npmrc
+docker/id_rsa
+docker/.npmrc
